@@ -1,30 +1,28 @@
-import React, { Component } from "react";
-
-// import context
+import React, { useContext,useState } from "react";
 import { RoomContext } from "../../Context/Context";
-
-// import components
 import Loading from "../Loading/Loading";
 import Room from "../Room/Room";
 import Title from "../Title/Title";
 
-export default class FeaturedRooms extends Component {
-  static contextType = RoomContext;
+const FeaturedRooms = () => {
+  const { loading, featuredRooms: rooms } = useContext(RoomContext);
 
-  render() {
-    let { loading, featuredRooms: rooms } = this.context;
-    rooms = rooms.map((room) => {
-      return <Room key={room.id} room={room} />;
-    });
+  // const [loading, setLoading] = useState(true);
+  // const [rooms, setRooms] = useState([]);
+  const roomElements = rooms.map((room) => {
+    return <Room key={room.id} room={room} />;
+  });
 
-    return (
-      <section className="featured-rooms">
-        <Title title="featured rooms" />
+  return (
+   < RoomContext.Provider value={{ rooms, loading }}>
+    <section className="featured-rooms">
+      <Title title="featured rooms" />
+      <div className="featured-rooms-center">
+        {loading ? <Loading /> : roomElements}
+      </div>
+    </section>
+    </RoomContext.Provider>
+  );
+};
 
-        <div className="featured-rooms-center">
-          {loading ? <Loading /> : rooms}
-        </div>
-      </section>
-    );
-  }
-}
+export default FeaturedRooms;

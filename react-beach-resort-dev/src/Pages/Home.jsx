@@ -6,10 +6,12 @@ import FeaturedRooms from "../Components/FeaturedRooms/FeaturedRooms";
 // imports components
 import Hero from "../Components/Hero/Hero";
 import Services from "../Components/Services/Services";
+import { RoomProvider } from '../Context/Context';
 
 function Home() {
   return (
     <>
+        <RoomProvider>
       <Hero>
         <Banner
           title="luxurious rooms"
@@ -20,8 +22,10 @@ function Home() {
           </Link>
         </Banner>
       </Hero>
+    
       <Services />
       <FeaturedRooms />
+      </RoomProvider>
     </>
   );
 }

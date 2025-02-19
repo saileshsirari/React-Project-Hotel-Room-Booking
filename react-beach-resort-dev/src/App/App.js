@@ -1,7 +1,8 @@
+import React from 'react';
 import "./App.css";
 
 // import react-router-dom
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 // imports pages
 import Home from "../Pages/Home";
@@ -17,12 +18,12 @@ function App() {
   return (
     <>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/rooms/" component={Room} />
-        <Route exact path="/rooms/:slug" component={SingleRoom} />
-        <Route component={Error} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rooms" element={<Room />} />
+        <Route path="/rooms/:slug" element={<SingleRoom />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
       <Footer />
     </>
   );
