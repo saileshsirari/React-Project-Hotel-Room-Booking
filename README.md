@@ -2,7 +2,7 @@
 
 ### 🔰 Live Preview Projects:
 
-- Complete "Beach Resort | Hotel Room Book" Project - [Click To Live Preview][beach-resort]
+- Complete "  | Hotel Room Book" Project - [Click To Live Preview][beach-resort]
 
 <br />
 
